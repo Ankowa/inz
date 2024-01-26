@@ -25,3 +25,4 @@ diffusers
 torchvision
 pytest
 pytest-cov
+mypy

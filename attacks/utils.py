@@ -67,7 +67,7 @@ class PQDataset(Dataset):
     def __len__(self):
         return self.data.shape[0]
 
-    def __getitem__(self, idx) -> Tuple[torch.Tensor, dict]:
+    def __getitem__(self, idx) -> Tuple[torch.Tensor, dict, bool]:
         row = self.data.slice(idx, length=1)
         if "jpg" in self.columns:
             img, is_ok = self.img_to_tensor(row.select(["jpg"]).to_pylist()[0]["jpg"])

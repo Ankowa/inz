@@ -361,7 +361,7 @@ def get_cm(
                 y_pred.append(y_hat)
             y_true = torch.cat(y_true, dim=0).numpy()
             y_pred = torch.cat(y_pred, dim=0).numpy()
-            print(confusion_matrix(y_true, y_pred > 0.5, normalize="true"))
+            return confusion_matrix(y_true, y_pred > 0.5, normalize="true")
 
 
 def first_iteration(

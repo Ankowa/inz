@@ -68,7 +68,7 @@ def create_threads(
     idx = 0
     for lb, rb in split_indices:
         thread = QueryThread(
-            procID,
+            int(procID),
             idx,
             emb_list[lb:rb],
             urls[lb:rb],
@@ -124,7 +124,7 @@ def save_results_processes(processes: List[QueryProcess]) -> None:
 
 
 def save_results(workers: Union[List[QueryThread], List[QueryProcess]]) -> None:
-    final_results = {
+    final_results: dict() = {
         "url_orig": [],
         "url_sim": [],
     }

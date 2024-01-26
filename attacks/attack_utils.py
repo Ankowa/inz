@@ -178,7 +178,7 @@ def get_dataset(data_path, transform, is_parquet, is_members) -> PQDataset:
         return get_huggingface_dataset(data_path, transform, is_members)
 
 
-def collate_fn_pq(sample) -> Tuple[torch.Tensor, List[str], List[str]]:
+def collate_fn_pq(sample) -> Tuple[torch.Tensor, List[str]]:
     convert_tensor = transforms.ToTensor()
     # example[2] == is_ok flag
     try:
@@ -234,8 +234,8 @@ def collate_fn_hg(sample) -> Tuple[torch.Tensor, List[str], List[str]]:
 def get_batch(
     loader: torch.utils.data.DataLoader = None,
     transform: torchvision.transforms.Compose = None,
-    filepaths: list = None,
-    filenames: list = None,
+    filepaths: list = list(),
+    filenames: list = list(),
     generations_per_sample: int = 1,
 ):
     if loader is not None:
@@ -244,7 +244,7 @@ def get_batch(
             if sample is None:
                 continue
             yield sample, prompt
-    elif filepaths is not None:
+    elif len(filepaths):
         for filepath, filename in zip(filepaths, filenames):
             try:
                 sample = transform(Image.open(filepath).convert("RGB"))

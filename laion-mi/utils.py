@@ -27,7 +27,7 @@ def download_from_urls(
     output_path: str,
     url_col: str,
     additional_colums: List[str],
-    caption_col: str = None,
+    caption_col: str = "",
     **kwargs,
 ) -> None:
     download(
@@ -64,7 +64,7 @@ class PQDataset(Dataset):
         pq_table: pa.lib.Table,
         preprocess: torchvision.transforms.Compose = None,
         columns=["url_orig", "jpg"],
-        url_fixer: Dict[str, str] = None,
+        url_fixer: Dict[str, str] = dict(),
     ):
         assert (
             preprocess is None or "jpg" in columns
@@ -98,7 +98,7 @@ class PQDataset(Dataset):
     def __len__(self):
         return self.data.shape[0]
 
-    def __getitem__(self, idx) -> Tuple[torch.Tensor, dict]:
+    def __getitem__(self, idx) -> Tuple[torch.Tensor, dict, bool]:
         row = self.data.slice(idx, length=1)
         if "jpg" in self.columns:
             img, is_ok = self.img_to_tensor(row.select(["jpg"]).to_pylist()[0]["jpg"])
@@ -162,7 +162,7 @@ class QueryThread(threading.Thread):
         threading.Thread.__init__(self)
         self.procID = procID
         self.threadID = threadID
-        self.results = []
+        self.results: list = []
         self.embeddings = embeddings
         self.urls = urls
         self.search_client = search_client()
@@ -206,7 +206,7 @@ class QueryProcess(Process):
     ):
         Process.__init__(self)
         self.procID = procID
-        self.results = list()
+        self.results: list = list()
         self.embeddings = embeddings
         self.urls = urls
         self.threads = create_threads(threads_cnt, embeddings, urls, procID)

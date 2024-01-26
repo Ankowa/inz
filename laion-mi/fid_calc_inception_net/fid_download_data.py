@@ -10,7 +10,7 @@ def download_from_urls(
     output_path: str,
     url_col: str,
     additional_colums: List[str],
-    caption_col: str = None,
+    caption_col: str = "",
 ) -> None:
     download(
         processes_count=16,
@@ -35,6 +35,6 @@ if __name__ == "__main__":
         urls_parquet_path=URLS,
         output_path=OUTPUT_PATH,
         url_col="url",
-        additional_colums=None,
+        additional_colums=list(),
         caption_col="caption",
     )
