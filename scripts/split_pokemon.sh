@@ -1,4 +1,4 @@
-python3 pokemon-dataset-splittion/split_dataset.py \
+python3 pokemon_finetuning/split_dataset.py \
     --dataset_name="lambdalabs/pokemon-blip-captions" \
     --cache_dir="original_dataset" \
     --test_size=200 \
