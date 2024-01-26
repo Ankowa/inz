@@ -1,1 +1,0 @@
-python3 attacks/run_nn_classification.py
