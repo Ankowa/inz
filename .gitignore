@@ -1,0 +1,17 @@
+.venv/
+.coverage
+*.npz
+*.parquet
+*.pickle
+*.csv
+hg_cache/
+*.out
+*.pyc
+__pycache__/
+*.json
+diffusers/
+.cache/
+.local/
+.dotnet/
+.vscode-server/
+.vscode/
