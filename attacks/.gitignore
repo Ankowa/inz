@@ -1,0 +1,8 @@
+*.parquet
+*members/
+*.out
+LAION/
+__pycache__/
+*.npz
+*.csv
+*.json

@@ -1,0 +1,12 @@
+.venv/
+laion2b_multi_*/
+laion2b_en_*/
+laion_2b_multi_*/
+laion2b_en*/
+laion2b_members_*/
+sanitized_members_imgs/
+*.out
+.*/
+*.pyc
+members_imgs/
+nonmembers_imgs/

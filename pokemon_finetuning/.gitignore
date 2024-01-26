@@ -1,0 +1,8 @@
+diffusers/
+*.out
+.cache/
+.nv/
+sd-pokemon-model*/
+.venv/
+generations*/
+pokemon-split*/
