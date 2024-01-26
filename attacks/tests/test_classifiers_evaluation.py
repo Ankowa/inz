@@ -5,6 +5,7 @@ from attacks.classifiers_evaluation import (
 import torch
 import numpy as np
 
+
 def test_get_loss_thrs_preds():
     X = torch.tensor([1, 2, 3, 4, 5])
     X_max = 5
@@ -46,7 +47,7 @@ def test_get_loss_thrs_preds():
             ]
         ),
     )
-    
+
     assert torch.allclose(
         get_loss_thrs_preds(X, X_max, False),
         torch.tensor(
@@ -55,6 +56,7 @@ def test_get_loss_thrs_preds():
             ]
         ),
     )
+
 
 def test_get_data_for_experiment_gen():
     gen = get_data_for_experiment_gen(

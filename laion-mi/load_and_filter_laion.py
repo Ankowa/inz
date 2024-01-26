@@ -16,8 +16,8 @@ OUTPUT_DIR = "laion2b_multi_test_raw_2"
 AESTHETIC_URLS = "urls.parquet"
 AESTHETIC_THRS = 5
 AESTHETIC_SCORE_COL = "prediction"
-IS_AESTHETIC = (
-    lambda x: x[AESTHETIC_SCORE_COL] > AESTHETIC_THRS
+IS_AESTHETIC = lambda x: (
+    x[AESTHETIC_SCORE_COL] > AESTHETIC_THRS
     if x[AESTHETIC_SCORE_COL] is not None
     else False
 )

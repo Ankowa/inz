@@ -26,8 +26,8 @@ OUTPUT_DIR = "laion2b_en_raw"
 AESTHETIC_MEMBERS_DIR = "laion2b_members_aesthetic"
 AESTHETIC_THRS = 5
 AESTHETIC_SCORE_COL = "AESTHETIC_SCORE"
-IS_AESTHETIC = (
-    lambda x: x[AESTHETIC_SCORE_COL] > AESTHETIC_THRS
+IS_AESTHETIC = lambda x: (
+    x[AESTHETIC_SCORE_COL] > AESTHETIC_THRS
     if x[AESTHETIC_SCORE_COL] is not None
     else False
 )

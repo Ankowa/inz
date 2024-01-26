@@ -2,6 +2,7 @@ from get_non_members import process_and_save_metadata
 import os
 import pandas as pd
 
+
 def test_process_and_save_metadata():
     original_dataset = pd.DataFrame(
         {

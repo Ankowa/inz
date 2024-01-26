@@ -16,11 +16,14 @@ from config import (
 def test_get_output_folder():
     assert get_output_folder() == SEARCH_QUERY_IMGS_DIR
 
+
 def test_get_l2_dir():
     assert get_l2_dir() == L2_DISTANCES_DIR
 
+
 def test_get_non_members_folder():
     assert get_non_members_folder() == NON_MEMBERS_IMG_DIR
+
 
 def test_unique_non_members_extraction():
     distances = {
@@ -46,4 +49,3 @@ def test_unique_non_members_extraction():
     assert df.loc[1]["img1"] == "img2"
     assert df.loc[1]["img2"] == "img3"
     assert df.loc[1]["dist"] == 0.3
-    

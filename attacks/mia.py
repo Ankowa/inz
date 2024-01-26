@@ -135,9 +135,11 @@ def run(
                         scheduler,
                         true_latents,
                         noise,
-                        starting_timestep=t
-                        if not attack["fix-noise-step"]
-                        else attack["start-noise-step"],
+                        starting_timestep=(
+                            t
+                            if not attack["fix-noise-step"]
+                            else attack["start-noise-step"]
+                        ),
                     ).to(device)
 
                 latents = latents * scheduler.init_noise_sigma
